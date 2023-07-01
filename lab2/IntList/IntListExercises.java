@@ -66,7 +66,12 @@ public class IntListExercises {
      * @param lst IntList from Lecture
      * @return True if there was an update to the list
      */
-    public static boolean squarePrimes(IntList lst,boolean hasChanged ) {
+
+    public static boolean squarePrimes(IntList lst) {
+        return squarePrimesHelper(lst, false);
+    }
+
+    public static boolean squarePrimesHelper(IntList lst,boolean hasChanged ) {
         // Base Case: we have reached the end of the list
         if (lst == null) {
             return hasChanged;
@@ -79,6 +84,6 @@ public class IntListExercises {
             lst.first *= lst.first;
         }
 
-        return squarePrimes(lst.rest,hasChanged);
+        return squarePrimesHelper(lst.rest,hasChanged);
     }
 }
